@@ -1,5 +1,4 @@
 class JourneysController < ApplicationController
-
   before_action :set_journey, only: %i[show edit update destroy]
 
   def index
@@ -17,15 +16,10 @@ class JourneysController < ApplicationController
     @journey = journey.new(journey_params)
     @journey.user_id = @curent_user
     @journey.save
-    
+
     redirect_to journeys_path
   end
 
-  private
-
-  def journey_params
-    params.require(:journey).permit(:address, :duration, :price, :exterior, :interest, :sense, :popularity, :anecdote, :environment)
-  end
 
   # GET /journeys/:id/edit
   def edit
@@ -44,10 +38,14 @@ class JourneysController < ApplicationController
     @journey.destroy
     redirect_to journeys_path, notice: 'Journey was successfully destroyed.'
   end
-end
 
-private
+  private
 
-def set_journey
-  @journey = Journey.find(params[:id])
+  def set_journey
+    @journey = Journey.find(params[:id])
+  end
+
+  def journey_params
+    params.require(:journey).permit(:address, :duration, :price, :exterior, :interest, :sense, :popularity, :anecdote, :environment)
+  end
 end
