@@ -1,0 +1,9 @@
+<h1> ALL THE JOURNEYS </h1>
+
+<ul>
+  <% @journeys.each do |journey| %>
+    <li><%= link_to journey.title, journeys_path(journey)  %></li>
+  <% end %>
+</ul>
+
+<%= link_to "create a new journey", new_journey_path %>
