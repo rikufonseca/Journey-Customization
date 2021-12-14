@@ -7,4 +7,5 @@ class Journey < ApplicationRecord
   validates :sense, presence: true
 
   has_many :users
+  belongs_to :booking
 end
