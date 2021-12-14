@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_12_14_120126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "journeys", force: :cascade do |t|
+    t.text "address"
+    t.integer "duration"
+    t.integer "price"
+    t.boolean "exterior"
+    t.string "interest"
+    t.string "sense"
+    t.integer "popularity"
+    t.text "anecdote"
+    t.string "environment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+  end
 
 end
