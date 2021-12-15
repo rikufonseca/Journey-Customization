@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'csv'
-require 'pry-byebug'
 require 'faker'
 
 puts 'cleqning DB.....'
