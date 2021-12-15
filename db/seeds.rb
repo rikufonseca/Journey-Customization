@@ -39,7 +39,7 @@ CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
                   price: rand(1...150),
                   exterior: false,
                   environment: Journey::ENVIRONMENTS.sample,
-                  anecdote: Faker::Quote
+                  anecdote: Faker::Quote.jack_handey
                 )
 
  puts 'created 1 journey .....'
