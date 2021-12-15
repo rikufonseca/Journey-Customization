@@ -16,8 +16,11 @@ class JourneysController < ApplicationController
     @journey = Journey.new(journey_params)
     @journey.user_id = @curent_user
     @journey.save
-
-    redirect_to journeys_path
+    if @journey.save
+      redirect_to journeys_path
+    else
+      render :new
+    end
   end
 
 
@@ -46,6 +49,6 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:address, :duration, :price, :exterior, :popularity, :anecdote, :interest => [], :sense => [], :environment => [])
+    params.require(:journey).permit(:title, :address, :duration, :price, :exterior, :popularity, :anecdote, :interest, :sense, :environment)
   end
 end

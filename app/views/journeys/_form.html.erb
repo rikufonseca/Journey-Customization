@@ -3,14 +3,15 @@
 
   <div class="form-inputs">
     <%= f.input :title, placeholder: 'Title' %>
+    <%= f.input :address, placeholder: "Address" %>
     <%= f.input :duration, placeholder: 'Duration (minutes)'  %>
     <%= f.input :price, placeholder: 'Price (euros)'  %>
     <%= f.input :exterior, as: :boolean, inline_label: 'This journey is in exterior' %>
-    <%= f.input :interest, collection: Journey::INTERESTS, input_html: { multiple: true }, placeholder: 'Select interests (several possible)'  %>
-    <%= f.input :sense, collection: Journey::SENSES, input_html: { multiple: true }, placeholder: 'Select senses (several possible)'  %>
+    <%= f.input :interest, collection: Journey::INTERESTS, placeholder: 'Select interests (several possible)'  %>
+    <%= f.input :sense, collection: Journey::SENSES, placeholder: 'Select senses (several possible)'  %>
     <%= f.input :popularity, placeholder: 'Popularity (between 1 and 10)'  %>
     <%= f.input :anecdote, placeholder: 'Tell a story about this journey!'  %>
-    <%= f.input :environment, collection: Journey::ENVIRONMENTS, input_html: { multiple: true }, placeholder: 'Select environment (several possible)' %>
+    <%= f.input :environment, collection: Journey::ENVIRONMENTS, placeholder: 'Select environment (several possible)' %>
   </div>
 
   <div class="form-actions">
