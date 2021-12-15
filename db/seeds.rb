@@ -29,10 +29,10 @@ CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
   interest = row["Categorie"]
   address = row["Adresse 1"] + " " + row["Code Postal"] + " " + row["Ville"]
     
-  Journey.create!(title: title, 
+  journey = Journey.create(title: title, 
                   interest: interest, 
                   address: address,
-                  user: User.all.sample,
+                  user_id: User.all.sample.id,
                   duration: rand(30..300),
                   popularity: rand(1..10),
                   sense: Journey::SENSES.sample,
@@ -41,5 +41,8 @@ CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
                   environment: Journey::ENVIRONMENTS.sample,
                   anecdote: Faker::Quote
                 )
- p journey.create!
+
+ puts 'created 1 journey .....'
  end
+
+ puts ' done seeding ......'
