@@ -1,7 +1,7 @@
-<h1><%= @journey.title %></h1>
+<h1><%= @journey[:id].title %></h1>
 
 <ul>
-<%# <li><%= @journey.photo_url %></li>
+
 <li><strong>Duration:</strong><%= @journey.duration %> minutes | <%= @journey.exterior? ? "Exterior" : "Interior" %></li>
 <li><strong>Senses:</strong> <%= @journey.sense %> | <strong>Interests:</strong> <%= @journey.interest %></li>
 <li><strong>Environment:</strong> <%= @journey.environment %> | <strong>Popularity:</strong> <%= @journey.popularity %> /10</li>
@@ -9,5 +9,5 @@
 <li><strong>Address:</strong> <%= @journey.address %></li>
 </ul>
 
-<%= link_to "Book it", accept_booking_path(@journey) %>
+<%= link_to "Book it", new_journey_booking_path(@journey) %>
 <%= link_to "Back to all journeys", journeys_path %>
