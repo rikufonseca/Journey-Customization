@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 
   def new
   # @user = User.find(params[:user_id])
-   @journey = Journey.find(params[:journey_id])
+    @journey = Journey.find(params[:journey_id])
     @booking = Booking.new
   end
 
@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
   def refuse
   end
 
-  private 
+  private
 
   def params_booking
     params.require(:booking).permit(:start_date, :number_of_people)
