@@ -3,9 +3,9 @@
 <ul>
   <% @journeys.each do |journey| %>
     <li><%= link_to (PHOTO GIRLS serait super en carte background ecriture couleur selon le fond) %></li>
-    <li><%= link_to journey.title, journeys_path(journey)  %></li>
-    <li> Journey duration: <%= journey.duration  %></li>
-    <li> Price: <%= journey.price  %></li>
+    <li><%= link_to @journey.title, journeys_path(journey)  %></li>
+    <li> Journey duration: <%= @journey.duration  %></li>
+    <li> Price: <%= @journey.price  %></li>
   <% end %>
 </ul>
 
