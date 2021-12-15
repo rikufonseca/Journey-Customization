@@ -27,8 +27,8 @@ class JourneysController < ApplicationController
 
   # PATCH /journeys/:id
   def update
-    if @journey.update(garden_params)
-      redirect_to journeys_path, notice: 'Garden was successfully updated.'
+    if @journey.update(journey_params)
+      redirect_to journeys_path, notice: 'Journey was successfully updated.'
     else
       render :edit
     end
