@@ -28,9 +28,9 @@ CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
   title = row["Nom du site"]
   interest = row["Categorie"]
   address = row["Adresse 1"] + " " + row["Code Postal"] + " " + row["Ville"]
-    
-  journey = Journey.create(title: title, 
-                  interest: interest, 
+
+  journey = Journey.create(title: title,
+                  interest: Journey::INTERESTS.sample(rand(1..5)),
                   address: address,
                   user_id: User.all.sample.id,
                   duration: rand(30..300),

@@ -16,7 +16,7 @@ class JourneysController < ApplicationController
     @journey = Journey.new(journey_params)
     @journey.user_id = @curent_user
     @journey.save
-    if @journey.save
+    if @journey.save!
       redirect_to journeys_path
     else
       render :new
@@ -30,6 +30,7 @@ class JourneysController < ApplicationController
 
   # PATCH /journeys/:id
   def update
+    @journey.update(journey_params)
     if @journey.update(journey_params)
       redirect_to journeys_path, notice: 'Journey was successfully updated.'
     else
@@ -49,6 +50,6 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:title, :address, :duration, :price, :exterior, :popularity, :anecdote, :interest, :sense, :environment)
+    params.require(:journey).permit(:title, :address, :duration, :price, :exterior, :popularity, :anecdote, :sense, :environment, interest_list: [])
   end
 end
