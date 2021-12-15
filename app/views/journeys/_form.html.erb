@@ -7,8 +7,8 @@
     <%= f.input :duration, placeholder: 'Duration (minutes)'  %>
     <%= f.input :price, placeholder: 'Price (euros)'  %>
     <%= f.input :exterior, as: :boolean, inline_label: 'This journey is in exterior' %>
-    <%= f.input :interest, collection: Journey::INTERESTS, placeholder: 'Select interests (several possible)'  %>
-    <%= f.input :sense, collection: Journey::SENSES, placeholder: 'Select senses (several possible)'  %>
+    <%= f.select :interest, collection: Journey::INTERESTS, placeholder: 'Select interests (several possible)'  %>
+    <%= f.select :sense, collection: Journey::SENSES, placeholder: 'Select senses (several possible)'  %>
     <%= f.input :popularity, placeholder: 'Popularity (between 1 and 10)'  %>
     <%= f.input :anecdote, placeholder: 'Tell a story about this journey!'  %>
     <%= f.input :environment, collection: Journey::ENVIRONMENTS, placeholder: 'Select environment (several possible)' %>
