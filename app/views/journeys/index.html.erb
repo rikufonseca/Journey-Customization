@@ -1,11 +1,10 @@
 <h1> ALL THE JOURNEYS </h1>
-<%= current_user.email %>
+
 <ul>
   <% @journeys.each do |journey| %>
     <li><%= link_to "PHOTO" %></li>
     <li><%= link_to journey.title, journey_path(journey)  %></li>
-    <li> <strong>Journey duration:</strong> <%= journey.duration  %> minutes</li>
-    <li> <strong>Price:</strong> <%= journey.price  %> euros</li>
+    <li> <strong>Journey duration:</strong> <%= journey.duration  %> minutes | <strong>Price:</strong> <%= journey.price  %> euros</li>
   <% end %>
 </ul>
 
