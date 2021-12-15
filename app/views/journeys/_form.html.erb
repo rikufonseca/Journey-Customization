@@ -1,0 +1,19 @@
+
+<%= simple_form_for(@journey) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :duration %>
+    <%= f.input :price %>
+    <%= f.input :exterior %>
+    <%= f.input :interest %>
+    <%= f.input :sense %>
+    <%= f.input :popularity %>
+    <%= f.input :anecdote %>
+    <%= f.input :environment %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
