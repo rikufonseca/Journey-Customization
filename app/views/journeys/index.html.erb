@@ -4,6 +4,7 @@
   <% @journeys.each do |journey| %>
     <li> 👉 <strong><%= link_to journey.title, journey_path(journey)  %></strong> |  "FUTURE PHOTO" </li>
     <strong>Journey duration:</strong> <%= journey.duration  %> minutes | <strong>Price:</strong> <%= journey.price  %> euros
+    <br>
   <% end %>
 </ul>
 
