@@ -2,7 +2,10 @@
 
 <ul>
   <% @journeys.each do |journey| %>
-    <li><%= link_to journey.title, journeys_path(journey)  %></li>
+    <li><%= link_to "PHOTO" %></li>
+    <li><%= link_to @journey.title, journeys_path(journey)  %></li>
+    <li> Journey duration: <%= @journey.duration  %></li>
+    <li> Price: <%= @journey.price  %></li>
   <% end %>
 </ul>
 
