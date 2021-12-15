@@ -1,6 +1,7 @@
 .navbar-lewagon{
   display: flex;
   justify-content: space-between;
+  //z-index: initial;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,4 +19,5 @@
   width: 100px;
   height: 100px;
   background: #B682D9;
+  justify-content: left;
 }

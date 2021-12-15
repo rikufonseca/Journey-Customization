@@ -5,13 +5,29 @@ font-family: 'Open Sans', sans-serif;
 font-style: italic;
 color: black;
 justify-content: center;
+text-align: center;
+margin-top: 20px;
 }
 
-.btn{
+.btn-journey-customization{
   font-family: 'Bakbak One';
+  font-size: 18px;
   color: black;
   background-color: #6DD9D9;
-  padding-inline: 100px;
-  width: 100px;
+  //padding-inline: 100px;
+  width: auto;
   height: 100px;
+  display: block;
+  text-align: center;
+  border-color: #C9EB2A;
+  //z-index: 3px;
+}
+
+.container{
+  display: flex;
+  flex-direction:column;
+  //width: 800px;
+  height: 610px;
+  width: 100vw;
+  margin: 0;
 }
