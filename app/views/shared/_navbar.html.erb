@@ -1,11 +1,16 @@
+
 <nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
   <a class="navbar-brand" href="/">
     <%= cl_image_tag("noun-globe-4446666_goxrqs.png", width: 100, height: 100) %>
   </a>
    <% if user_signed_in? %>
-    <button type="button" class="btn-journey-customization" id="login">My account</button>
+    <%= link_to dashboard_path do %>
+      <button type="button" class="btn-journey-customization" id="login">My account</button>
+    <% end %>
   <% else %>
-     <button type="button" class="btn-journey-customization" id="login">Log in</button>
+    <%= link_to new_user_session do %>
+      <button type="button" class="btn-journey-customization" id="login">Log in</button>
+    <% end %>
   <% end %>
 </nav>
