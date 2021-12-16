@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
     @booking.journey = @journey
     @booking.user = @user
     @booking.save!
-
   end
 
   def edit
