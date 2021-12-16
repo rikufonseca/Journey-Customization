@@ -6,7 +6,6 @@ class JourneysController < ApplicationController
   end
 
   def show
-    @journey = Journey.where(params[:id])
   end
 
   def new
