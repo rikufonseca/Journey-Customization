@@ -1,15 +1,18 @@
 class BookingsController < ApplicationController
 
   def new
-  # @user = User.find(params[:user_id])
     @journey = Journey.find(params[:journey_id])
     @booking = Booking.new
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @journey = Journey.find(params[:booking][:journey_id])
+    @journey = Journey.find(params[:journey_id])
+    @user = User.find(params[:booking][:user_id])
     @booking = Booking.new(params_booking)
+    @booking.journey = @journey
+    @booking.user = @user
+    @booking.save
+
   end
 
   def edit

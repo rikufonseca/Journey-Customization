@@ -1,6 +1,8 @@
 <h1> MAKE A BOOKING </h1>
 
-<%= simple_form_for(booking) do |f| %>
+<%= simple_form_for[ @journey, @booking ] do |f| %>
   <%= f.input :start_date, placeholder: 'start_date'%>
-  <%= f.submit  :number_of_people, placeholder: 'number_of_people'%>
+  <%= f.association :user %>
+  <%= f.input  :number_of_people, placeholder: 'number_of_people'%>
+  <%= f.submit "Pay", class: "btn btn-primary"  %>
 <% end %>
