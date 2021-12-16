@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'csv'
-require 'pry-byebug'
 require 'faker'
 
 puts 'cleqning DB.....'
@@ -28,9 +27,9 @@ CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
   title = row["Nom du site"]
   interest = row["Categorie"]
   address = row["Adresse 1"] + " " + row["Code Postal"] + " " + row["Ville"]
-    
-  journey = Journey.create(title: title, 
-                  interest: interest, 
+
+  journey = Journey.create(title: title,
+                  interest: Journey::INTERESTS.sample(rand(1..5)),
                   address: address,
                   user_id: User.all.sample.id,
                   duration: rand(30..300),
@@ -39,7 +38,7 @@ CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
                   price: rand(1...150),
                   exterior: false,
                   environment: Journey::ENVIRONMENTS.sample,
-                  anecdote: Faker::Quote
+                  anecdote: Faker::Quote.jack_handey
                 )
 
  puts 'created 1 journey .....'

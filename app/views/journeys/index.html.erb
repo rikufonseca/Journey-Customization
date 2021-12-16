@@ -1,12 +1,21 @@
 <h1> ALL THE JOURNEYS </h1>
 
+<div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
+    Journey 1
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+    Journey 2
+  </div>
+</div>
+
 <ul>
   <% @journeys.each do |journey| %>
-    <li><%= link_to "PHOTO" %></li>
-    <li><%= link_to journey.title, journey_path(journey)  %></li>
-    <li> Journey duration: <%= journey.duration  %> minutes</li>
-    <li> Price: <%= journey.price  %> euros</li>
+    <li> 👉 <strong><%= link_to journey.title, journey_path(journey)  %></strong> |  "FUTURE PHOTO" </li>
+    <strong>Journey duration:</strong> <%= journey.duration  %> minutes | <strong>Price:</strong> <%= journey.price  %> euros
+    <br>
   <% end %>
 </ul>
-
+<button class="btn-journey-customization"><strong>CREATE A NEW JOURNEY</strong></button>
 <%= link_to "create a new journey", new_journey_path %>
