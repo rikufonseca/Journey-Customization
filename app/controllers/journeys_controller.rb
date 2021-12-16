@@ -19,7 +19,7 @@ class JourneysController < ApplicationController
     @journey.user_id = current_user
     @journey.save
     if @journey.save!
-      redirect_to journeys_path
+      redirect_to journey_path(@journey)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class JourneysController < ApplicationController
   def update
     @journey.update(journey_params)
     if @journey.update(journey_params)
-      redirect_to journeys_path, notice: 'Journey was successfully updated.'
+      redirect_to journey_path(@journey), notice: 'Journey was successfully updated.'
     else
       render :edit
     end

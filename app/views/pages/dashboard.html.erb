@@ -1,10 +1,23 @@
-<h4>Hello traveller!</h4>
-<br>
-<h3>Your infos:</h3>
-<br>
-<%# <p>Name: <%= @user.full_name --> to be added once coded %>
-<p>Your email:<%= @user.email %></p>
-<br>
+
+<div class="container-fluid" style="padding-top: 20px;">
+  <h3>Hello traveller!</h3>
+  <br>
+  <div class="dash-card">
+    <h4 class="dash-card-title">Your infos:</h4>
+    <div class="dash-card-text">Your email: <%= @user.email %></div>
+    <%# <p>Name: <%= @user.full_name --> to be added once coded %>
+  </div>
+
+  <h4>This are the bookings you have to accept or decline:</h4>
+  <br>
+  <h4>This are the bookings you accepted:</h4>
+  <br>
+  <h4>This are the journeys you created:</h4>
+  <br>
+  <h4>This are the journeys you booked for yourself:</h4>
+  <br>
+</div>
+
 <div class="bookings_wrap_one">
 <h3>This are the bookings you declined: </h3>
    <% @user.bookings.each do |booking| %> 
