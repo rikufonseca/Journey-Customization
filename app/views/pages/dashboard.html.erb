@@ -5,11 +5,36 @@
 <%# <p>Name: <%= @user.full_name --> to be added once coded %>
 <p>Your email:<%= @user.email %></p>
 <br>
-<h3>This are the bookings you have to accept or decline:</h3>
+<div class="bookings_wrap_one">
+<h3>This are the bookings you declined: </h3>
+   <% @user.bookings.each do |booking| %> 
+    <div class="booking_card_one">
+      <h3><%= booking.journey.title %></h3>
+      <h3><%= booking.start_date %></h3>
+      <h3><%= booking.status %></h3>
+      <%= link_to "Decline this booking", 
+                  booking_path(booking), 
+                  method: :delete %>
+      </div>
+   <% end %>
+</div>
 <br>
-<h3>This are the bookings you accepted:</h3>
+
+<div class="bookings_wrap_two">
+  <h3>This are the bookings you accepted:</h3>
+  <% @user.bookings.each do |booking| %>
+    <div class="booking_card_two">
+      <h3><%= booking.journey.title %></h3>
+      <h3><%= booking.start_date %></h3>
+      <h3><%= booking.status %></h3>
+      <%= link_to "Delete this booking", 
+                  booking_path(booking), 
+                  method: :delete %>
+
+      <%= link_to 'Accept booking', accept_booking_path(booking)  %>
+    </div>
+  <% end %>
+</div>
 <br>
-<h3>This are the journeys you created:</h3>
-<br>
-<h3>This are the journeys you booked for yourself:</h3>
+<h3>This are the journeys you booked for yourself: (bouton edit booking , button delete booking redirect vers accepte and decline)  </h3>
 <br>
