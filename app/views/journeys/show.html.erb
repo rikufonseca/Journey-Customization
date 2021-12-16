@@ -1,15 +1,21 @@
-<h1><%= @journey.title %></h1>
-
-<ul>
-<%# <li><%= @journey.photo_url %></li>
-<li><strong>Duration: </strong><%= @journey.duration %> minutes | <%= @journey.exterior? ? "Exterior" : "Interior" %></li>
-<li><strong>Senses: </strong> <%= @journey.sense %> | <strong>Interests: </strong> <%= @journey.interest_list.join(', ') %></li>
-<li><strong>Environment: </strong> <%= @journey.environment %> | <strong>Popularity: </strong> <%= @journey.popularity %> /10</li>
-<li><strong>A little anecdote about this journey: </strong> <%= @journey.anecdote %></li>
-<li><strong>Address: </strong> <%= @journey.address %></li>
-</ul>
-
-<%= link_to "✔️ Book it", new_journey_booking_path(@journey), class: "btn-simple"   %>
-<%= link_to "✍️ Edit journey", edit_journey_path, class: "btn-simple"   %>
-<%= link_to "🗑 Delete journey", journey_path(@journey), method: :delete, data: {confirm: "Are you sure you want to remove this journey? You can't undo this."}, class: "btn-simple"  %>
-<%= link_to "🔙 All journeys", journeys_path, class: "btn-simple"   %>
+<div class="container-fluid" style="padding-top: 20px;">
+  <div class="title-card">
+    <h1><%= @journey.title %></h1>
+  </div>
+  <div>
+  <ul>
+  <%# <li><%= @journey.photo_url %></li>
+  <li><strong>Duration: </strong><%= @journey.duration %> minutes | <%= @journey.exterior? ? "Exterior" : "Interior" %></li>
+  <li><strong>Senses: </strong> <%= @journey.sense %> | <strong>Interests: </strong> <%= @journey.interest %></li>
+  <li><strong>Environment: </strong> <%= @journey.environment %> | <strong>Popularity: </strong> <%= @journey.popularity %> /10</li>
+  <li><strong>A little anecdote about this journey: </strong> <%= @journey.anecdote %></li>
+  <li><strong>Address: </strong> <%= @journey.address %></li>
+  </ul>
+  </div>
+  <div class="bottom-links">
+  <%= link_to "✔️ Book it", new_journey_booking_path(@journey), class: "btn-simple"   %>
+  <%= link_to "✍️ Edit journey", edit_journey_path, class: "btn-simple"   %>
+  <%= link_to "🗑 Delete journey", journey_path(@journey), method: :delete, data: {confirm: "Are you sure you want to remove this journey? You can't undo this."}, class: "btn-simple"  %>
+  <%= link_to "🔙 All journeys", journeys_path, class: "btn-simple"   %>
+  </div>
+</div>
