@@ -6,7 +6,7 @@
     <h4 class="dash-card-title">Your infos:</h4>
     <div class="dash-card-text">
       <div> Your email: <%= @user.email %> </div>
-      <div> <%= link_to "Log out", destroy_user_session_path %> </div>
+      <div> <%= link_to "Log out", destroy_user_session_path, :method => :delete %> </div>
       <%# <p>Name: <%= @user.full_name --> to be added once coded %>
     </div>
   </div>
