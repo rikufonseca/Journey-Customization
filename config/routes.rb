@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-   root to: 'pages#home'
+  root to: 'pages#home'
+  get '/dashboard', to: 'pages#dashboard'
   devise_for :users
   resources :journeys do
     resources :bookings, only: [:new, :create]

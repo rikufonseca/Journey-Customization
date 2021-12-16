@@ -1,0 +1,6 @@
+
+<%= simple_form_for([journey, booking]) do |f| %>
+  <%= f.input :start_date, placeholder: 'start_date'%>
+  <%= f.input  :number_of_people, placeholder: 'number_of_people'%>
+  <%= f.submit "Pay", class: "btn btn-primary"  %>
+<% end %>
