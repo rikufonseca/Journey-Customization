@@ -1,12 +1,15 @@
 
 <div class="container-fluid" style="padding-top: 20px;">
-  <h3>Hello traveller!</h3>
-  <br>
+  <h3 style ="padding-bottom:30px">Hello traveller!</h3>
   <div class="dash-card">
     <h4 class="dash-card-title">Your infos:</h4>
-    <div class="dash-card-text">Your email: <%= @user.email %></div>
-    <%# <p>Name: <%= @user.full_name --> to be added once coded %>
+    <div class="dash-card-text">
+      <div> Your email: <%= @user.email %> </div>
+      <div> <%= link_to "Log out", destroy_user_session_path, :method => :delete %> </div>
+      <%# <p>Name: <%= @user.full_name --> to be added once coded %>
+    </div>
   </div>
+
 </div>
 
 <br>
@@ -36,7 +39,6 @@
         <% end %>
       <% end %>
   </div>
-
 
 <br>
 <h3>This are the journeys you booked for yourself: (bouton edit booking , button delete booking redirect vers accepte and decline)  </h3>
