@@ -10,10 +10,10 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking = Booking.new(params_booking)
     @booking.journey = @journey
-    @booking.current_user = @user
-    @booking.save!
-    if @booking.save!
-      redirect_to journeys_path, notice: "You successfully booked this wonderfull jouney"
+    @booking.user_id = @curent_user
+    @booking.save
+    if @booking.save
+      redirect_to dashboard_path, notice: "You successfully booked this wonderfull jouney"
     else
       render :new
     end
