@@ -10,21 +10,35 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking = Booking.new(params_booking)
     @booking.journey = @journey
-    @booking.user = @user
+    @booking.current_user = @user
     @booking.save!
-  end
+    if @booking.save!
+      redirect_to journeys_path, notice: "You successfully booked this wonderfull jouney"
+    else
+      render :new
+    end
+  end 
 
   def edit
-    
+    @booking = Booking.find(params[:id])
   end
 
   def update
+    @booking.update(params_booking)
+    if @booking.update(params_booking)
+      redirect_to journey_path(@journey), notice: 'booking was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @booking.destroy
+    redirect_to journey_path(@journey), notice: 'Booking was successfully destroyed.'
   end
 
   def accept
+    
   end
 
   def refuse
