@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-
+  before_action :set_booking, only: %i[edit destroy accept refuse]
   def new
     @journey = Journey.find(params[:journey_id])
     @booking = Booking.new
@@ -10,17 +10,17 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking = Booking.new(params_booking)
     @booking.journey = @journey
-    @booking.user_id = @curent_user
-    @booking.save
-    if @booking.save
+    @booking.user = @user
+    @booking.status = 'Pending'
+    @booking.save!
+    if @booking.save!
       redirect_to dashboard_path, notice: "You successfully booked this wonderfull jouney"
     else
       render :new
     end
-  end 
+  end
 
   def edit
-    @booking = Booking.find(params[:id])
   end
 
   def update
@@ -34,17 +34,26 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to journey_path(@journey), notice: 'Booking was successfully destroyed.'
+    redirect_to dashboard_path, notice: 'Booking was successfully destroyed.'
   end
 
   def accept
-    
+    @booking.status = 'Accepted'
+    @booking.save
+    redirect_to dashboard_path, notice: 'Booking accepted !'
   end
 
   def refuse
+    @booking.status = 'refuse'
+    @booking.save
+    redirect_to dashboard_path, notice: 'booking refused !'
   end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def params_booking
     params.require(:booking).permit(:start_date, :number_of_people)

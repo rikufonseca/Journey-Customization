@@ -3,6 +3,9 @@
   <a class="navbar-brand" href="/">
     <%= cl_image_tag("noun-globe-4446666_goxrqs.png", width: 100, height: 100) %>
   </a>
-   <button type="button" class="btn-journey-customization" id="login">LOG IN</button>
-
+   <% if user_signed_in? %>
+    <button type="button" class="btn-journey-customization" id="login">My account</button>
+  <% else %>
+     <button type="button" class="btn-journey-customization" id="login">Log in</button>
+  <% end %>
 </nav>
