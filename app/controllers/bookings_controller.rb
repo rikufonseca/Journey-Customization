@@ -7,15 +7,15 @@ class BookingsController < ApplicationController
 
   def create
     @journey = Journey.find(params[:journey_id])
-    @user = User.find(params[:booking][:user_id])
+    @user = current_user
     @booking = Booking.new(params_booking)
     @booking.journey = @journey
     @booking.user = @user
-    @booking.save
-
+    @booking.save!
   end
 
   def edit
+    
   end
 
   def update
