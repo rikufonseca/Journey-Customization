@@ -11,5 +11,5 @@
 
 <%= link_to "✔️ Book it", new_journey_booking_path(@journey), class: "btn-simple"   %>
 <%= link_to "✍️ Edit journey", edit_journey_path, class: "btn-simple"   %>
-<%= link_to "🗑 Delete journey", journey_path(@journey), method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-simple"  %>
+<%= link_to "🗑 Delete journey", journey_path(@journey), method: :delete, data: {confirm: "Are you sure you want to remove this journey? You can't undo this."}, class: "btn-simple"  %>
 <%= link_to "🔙 All journeys", journeys_path, class: "btn-simple"   %>
