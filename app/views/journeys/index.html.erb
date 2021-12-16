@@ -1,12 +1,21 @@
 <h1> ALL THE JOURNEYS </h1>
 
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
-    Journey 1
+<div class="contcard-group">
+  <div class="card col-5">
+    <img src="https://www.opera-online.com/media/images/picture/article/0000/0935/5176/xl_opera-de-marseille-saison-2019-2020.jpg?1556291209" class="card-img-top" alt="Opéra de Marseille">
+    <div class="card-body">
+      <h5 class="card-title"><strong>Card title</strong></h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
   </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Journey 2
+  <div class="card col-5">
+    <img src="https://www.opera-online.com/media/images/picture/article/0000/0935/5176/xl_opera-de-marseille-saison-2019-2020.jpg?1556291209" class="card-img-top" alt="Opéra de Marseille">
+    <div class="card-body">
+      <h5 class="card-title"><strong>Card</strong></h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
   </div>
 </div>
 
@@ -17,5 +26,7 @@
     <br>
   <% end %>
 </ul>
+
+<%= link_to new_journey_path do %>
 <button class="btn-journey-customization"><strong>CREATE A NEW JOURNEY</strong></button>
-<%= link_to "create a new journey", new_journey_path %>
+  <% end %>

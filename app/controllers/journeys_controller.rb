@@ -1,5 +1,7 @@
 class JourneysController < ApplicationController
-  before_action :set_journey, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
+
+  before_action :set_journey, only: %i[show edit update destroy]
 
   def index
     @journeys = Journey.all
@@ -14,7 +16,7 @@ class JourneysController < ApplicationController
 
   def create
     @journey = Journey.new(journey_params)
-    @journey.user_id = @curent_user
+    @journey.user_id = current_user
     @journey.save
     if @journey.save!
       redirect_to journey_path(@journey)
@@ -22,7 +24,6 @@ class JourneysController < ApplicationController
       render :new
     end
   end
-
 
   # GET /journeys/:id/edit
   def edit
@@ -50,6 +51,7 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:title, :address, :duration, :price, :exterior, :popularity, :anecdote, :sense, :environment, interest_list: [])
+    params.require(:journey).permit(:title, :address, :duration, :price, :exterior, :popularity, :anecdote, :sense,
+                                    :environment, interest_list: [])
   end
 end
