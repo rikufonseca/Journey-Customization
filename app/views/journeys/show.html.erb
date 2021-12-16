@@ -9,4 +9,7 @@
 <li><strong>Address: </strong> <%= @journey.address %></li>
 </ul>
 
-<p></p> <%= link_to "Book it", new_journey_booking_path(@journey) %> | <%= link_to "✍️ Edit journey", edit_journey_path %> | <%= link_to "🔙 All journeys", journeys_path %></p>
+<%= link_to "✔️ Book it", new_journey_booking_path(@journey), class: "btn-simple"   %>
+<%= link_to "✍️ Edit journey", edit_journey_path, class: "btn-simple"   %>
+<%= link_to "🗑 Delete journey", journey_path(@journey), method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-simple"  %>
+<%= link_to "🔙 All journeys", journeys_path, class: "btn-simple"   %>
