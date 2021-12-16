@@ -1,13 +1,15 @@
 <h1><%= @journey.title %></h1>
 
 <ul>
-
-  <%# <li><%= @journey.photo_url %></li>
-  <li><strong>Duration: </strong><%= @journey.duration %> minutes | <%= @journey.exterior? ? "Exterior" : "Interior" %></li>
-  <li><strong>Senses: </strong> <%= @journey.sense %> | <strong>Interests: </strong> <%= @journey.interest_list.join(', ') %></li>
-  <li><strong>Environment: </strong> <%= @journey.environment %> | <strong>Popularity: </strong> <%= @journey.popularity %> /10</li>
-  <li><strong>A little anecdote about this journey: </strong> <%= @journey.anecdote %></li>
-  <li><strong>Address: </strong> <%= @journey.address %></li>
+  <li><%= @journey.photo_url %></li>
+<p></p><%= link_to "🤙 Book it", accept_booking_path(@journey) %> | <%= link_to "✍️ Edit journey", edit_journey_path %> | <%= link_to "🔙 All journeys", journeys_path %></p>
+<%# <li><%= @journey.photo_url %></li>
+<li><strong>Duration: </strong><%= @journey.duration %> minutes | <%= @journey.exterior? ? "Exterior" : "Interior" %></li>
+<li><strong>Senses: </strong> <%= @journey.sense %> | <strong>Interests: </strong> <%= @journey.interest_list.join(', ') %></li>
+<li><strong>Environment: </strong> <%= @journey.environment %> | <strong>Popularity: </strong> <%= @journey.popularity %> /10</li>
+<li><strong>A little anecdote about this journey: </strong> <%= @journey.anecdote %></li>
+<li><strong>Address: </strong> <%= @journey.address %></li>
 </ul>
 
-<p></p><%= link_to "🤙 Book it", accept_booking_path(@journey) %> | <%= link_to "✍️ Edit journey", edit_journey_path %> | <%= link_to "🔙 All journeys", journeys_path %></p>
+<p></p> <%= link_to "Book it", new_journey_booking_path(@journey) %> | <%= link_to "✍️ Edit journey", edit_journey_path %> | <%= link_to "🔙 All journeys", journeys_path %></p>
+
