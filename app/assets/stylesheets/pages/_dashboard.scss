@@ -1,0 +1,14 @@
+.dash-card-text{
+  display: flex;
+  width: 95%;
+  margin: 10px;
+  background-color: #FDFDFD;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  border-radius: 7px;
+  padding: 5%;
+  flex-direction:column;
+}
+
+.dash-card-title{
+font-weight: bold;
+}
