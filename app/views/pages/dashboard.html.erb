@@ -7,47 +7,37 @@
     <div class="dash-card-text">Your email: <%= @user.email %></div>
     <%# <p>Name: <%= @user.full_name --> to be added once coded %>
   </div>
-
-  <h4>This are the bookings you have to accept or decline:</h4>
-  <br>
-  <h4>This are the bookings you accepted:</h4>
-  <br>
-  <h4>This are the journeys you created:</h4>
-  <br>
-  <h4>This are the journeys you booked for yourself:</h4>
-  <br>
 </div>
 
-<div class="bookings_wrap_one">
-<h3>This are the bookings you declined: </h3>
-   <% @user.bookings.each do |booking| %> 
-    <div class="booking_card_one">
-      <h3><%= booking.journey.title %></h3>
-      <h3><%= booking.start_date %></h3>
-      <h3><%= booking.status %></h3>
-      <%= link_to "Decline this booking", 
-                  booking_path(booking), 
-                  method: :delete %>
-      </div>
-   <% end %>
-</div>
 <br>
 
-<div class="bookings_wrap_two">
-  <h3>This are the bookings you accepted:</h3>
+<div class="bookings_wrap">
+  <h3>Your pending bookings:</h3>
   <% @user.bookings.each do |booking| %>
-    <div class="booking_card_two">
-      <h3><%= booking.journey.title %></h3>
-      <h3><%= booking.start_date %></h3>
-      <h3><%= booking.status %></h3>
-      <%= link_to "Delete this booking", 
-                  booking_path(booking), 
-                  method: :delete %>
+    <% if booking.status != "Accepted" %>
+      <div class="booking_card">
+        <h3><%= booking.journey.title %></h3>
+        <h3><%= booking.start_date %></h3>
+        <h3><%= booking.status %></h3>
+        <%= link_to "Delete this booking", 
+                    booking_path(booking), 
+                    method: :delete %>
 
-      <%= link_to 'Accept booking', accept_booking_path(booking)  %>
-    </div>
+        <%= link_to 'Accept booking', accept_booking_path(booking) %>
+      </div>
+    <% end %>
   <% end %>
-</div>
+
+      <h3><%= "Your accepted bookings are:" %></h3>
+      <% @user.bookings.each do |booking| %>
+        <% if booking.status == "Accepted" %>
+          <h3><%= booking.journey.title %></h3>
+          <h3><%= booking.start_date %></h3>
+        <% end %>
+      <% end %>
+  </div>
+
+
 <br>
 <h3>This are the journeys you booked for yourself: (bouton edit booking , button delete booking redirect vers accepte and decline)  </h3>
 <br>

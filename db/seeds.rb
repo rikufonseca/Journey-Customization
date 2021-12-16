@@ -10,6 +10,7 @@ require 'csv'
 require 'faker'
 
 puts 'cleqning DB.....'
+Booking.destroy_all
 Journey.destroy_all
 User.destroy_all
 
