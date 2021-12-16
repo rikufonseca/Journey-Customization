@@ -15,9 +15,10 @@ User.destroy_all
 
 puts "seeding"
 
-u = User.create!(email: "fonsecarika@gmail.com", password: "123456789", password_confirmation: "123456789")
-u = User.create!(email: "sarah@gmail.com", password: "123456789", password_confirmation: "123456789")
-u = User.create!(email: "illem@gmail.com", password: "123456789", password_confirmation: "123456789")
+u1 = User.create!(email: "fonsecarika@gmail.com", password: "123456789", password_confirmation: "123456789")
+u2 = User.create!(email: "sarah@gmail.com", password: "123456789", password_confirmation: "123456789")
+u3 = User.create!(email: "illem@gmail.com", password: "123456789", password_confirmation: "123456789")
+u4 = User.create!(email: "test@journey.com", password: "123456789", password_confirmation: "123456789")
 
 puts 'created 3 users'
 
