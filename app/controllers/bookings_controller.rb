@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
   def refuse
   end
 
-  private 
+  private
 
   def params_booking
     params.require(:booking).permit(:start_date, :number_of_people)
