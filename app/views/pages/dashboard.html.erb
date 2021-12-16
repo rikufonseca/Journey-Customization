@@ -4,50 +4,39 @@
   <br>
   <div class="dash-card">
     <h4 class="dash-card-title">Your infos:</h4>
-    <div class="dash-card-text">Your email: <%= @user.email %></div>
-    <%# <p>Name: <%= @user.full_name --> to be added once coded %>
+    <div class="dash-card-text">
+      <div> Your email: <%= @user.email %> </div>
+      <div> <%= link_to "Log out", destroy_user_session_path, :method => :delete %> </div>
+      <%# <p>Name: <%= @user.full_name --> to be added once coded %>
+    </div>
   </div>
 
-  <h4>This are the bookings you have to accept or decline:</h4>
+  <h4>Pending bookings you have to accept or decline as a guide:</h4>
   <br>
-  <h4>This are the bookings you accepted:</h4>
+  <h4>Bookings you accepted as a guide:</h4>
   <br>
-  <h4>This are the journeys you created:</h4>
+  <h4>Journeys you created as a guide:</h4>
   <br>
-  <h4>This are the journeys you booked for yourself:</h4>
+  <h4>Journeys you booked for yourself as a visitor:</h4>
   <br>
 </div>
 
 <div class="bookings_wrap_one">
 <h3>This are the bookings you declined: </h3>
-   <% @user.bookings.each do |booking| %> 
+   <% @user.bookings.each do |booking| %>
     <div class="booking_card_one">
       <h3><%= booking.journey.title %></h3>
       <h3><%= booking.start_date %></h3>
       <h3><%= booking.status %></h3>
-      <%= link_to "Decline this booking", 
-                  booking_path(booking), 
+      <%= link_to "Decline this booking",
+                  booking_path(booking),
                   method: :delete %>
       </div>
    <% end %>
 </div>
 <br>
 
-<div class="bookings_wrap_two">
-  <h3>This are the bookings you accepted:</h3>
-  <% @user.bookings.each do |booking| %>
-    <div class="booking_card_two">
-      <h3><%= booking.journey.title %></h3>
-      <h3><%= booking.start_date %></h3>
-      <h3><%= booking.status %></h3>
-      <%= link_to "Delete this booking", 
-                  booking_path(booking), 
-                  method: :delete %>
 
-      <%= link_to 'Accept booking', accept_booking_path(booking)  %>
-    </div>
-  <% end %>
-</div>
 <br>
 <h3>This are the journeys you booked for yourself: (bouton edit booking , button delete booking redirect vers accepte and decline)  </h3>
 <br>
