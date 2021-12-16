@@ -12,10 +12,9 @@
 
 <ul>
   <% @journeys.each do |journey| %>
-    <li><%= link_to "PHOTO" %></li>
-    <li><%= link_to journey.title, journey_path(journey)  %></li>
-    <li> Journey duration: <%= journey.duration  %> minutes</li>
-    <li> Price: <%= journey.price  %> euros</li>
+    <li> 👉 <strong><%= link_to journey.title, journey_path(journey)  %></strong> |  "FUTURE PHOTO" </li>
+    <strong>Journey duration:</strong> <%= journey.duration  %> minutes | <strong>Price:</strong> <%= journey.price  %> euros
+    <br>
   <% end %>
 </ul>
 <button class="btn-journey-customization"><strong>CREATE A NEW JOURNEY</strong></button>

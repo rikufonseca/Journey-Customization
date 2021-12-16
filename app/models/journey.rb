@@ -10,7 +10,7 @@ class Journey < ApplicationRecord
   validates :address, presence: true, length: { minimum: 10 }
   validates :duration, presence: true
   validates :price, presence: true
-  validates :interest, presence: true, inclusion: { in: INTERESTS }
+  acts_as_taggable_on :interests
   validates :sense, presence: true, inclusion: { in: SENSES }
   validates :environment, inclusion: { in: ENVIRONMENTS }
   validates :popularity, inclusion: { in: POPULARITY }
