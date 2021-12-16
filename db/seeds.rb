@@ -14,7 +14,7 @@ Journey.destroy_all
 User.destroy_all
 
 puts "seeding"
-
+urls = ['https://picsum.photos/seed/picsum/200/300']
 u1 = User.create!(email: "fonsecarika@gmail.com", password: "123456789", password_confirmation: "123456789")
 u2 = User.create!(email: "sarah@gmail.com", password: "123456789", password_confirmation: "123456789")
 u3 = User.create!(email: "illem@gmail.com", password: "123456789", password_confirmation: "123456789")
@@ -25,6 +25,8 @@ puts 'created 3 users'
 csv_options = { col_sep: '	', quote_char: '"', headers: :first_row }
 
 CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
+  file = URI.open(urls.sample)
+
   title = row["Nom du site"]
   interest = row["Categorie"]
   address = row["Adresse 1"] + " " + row["Code Postal"] + " " + row["Ville"]
@@ -41,6 +43,8 @@ CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
                   environment: Journey::ENVIRONMENTS.sample,
                   anecdote: Faker::Quote.jack_handey
                 )
+  journey.photo.attach(io: file, filename: 'file.png', content_type: 'image/png')
+  journey.save
 
  puts 'created 1 journey .....'
  end

@@ -29,4 +29,18 @@ justify-content: space-evenly;
 .card{
 display: flex;
 align-items: center;
+height: 180px;
+}
+
+.btn-journey-customization{
+  font-family: 'Bakbak One';
+  font-size: 18px;
+  color: black;
+  background-color: #6DD9D9;
+  width: 300px;
+  height: 100px;
+  //display: block;
+  text-align: center;
+  border: 1px solid #6DD9D9;
+  border-radius: 10px;
 }

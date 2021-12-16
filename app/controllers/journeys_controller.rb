@@ -51,7 +51,6 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:title, :address, :duration, :price, :exterior, :popularity, :anecdote, :sense,
-                                    :environment, interest_list: [])
+    params.require(:journey).permit(:title, :photo, :address, :duration, :price, :exterior, :popularity, :anecdote, :sense, :environment, interest_list: [])
   end
 end
