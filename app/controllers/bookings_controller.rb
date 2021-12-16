@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
   def update
     @booking.update(params_booking)
     if @booking.update(params_booking)
-      redirect_to journey_path(@journey), notice: 'booking was successfully updated.'
+      redirect_to journey_path(@journey), notice: 'Booking was successfully updated.'
     else
       render :edit
     end
@@ -40,13 +40,13 @@ class BookingsController < ApplicationController
   def accept
     @booking.status = 'Accepted'
     @booking.save
-    redirect_to dashboard_path, notice: 'Booking accepted !'
+    redirect_to dashboard_path, notice: 'Booking accepted!'
   end
 
   def refuse
     @booking.status = 'refuse'
     @booking.save
-    redirect_to dashboard_path, notice: 'booking refused !'
+    redirect_to dashboard_path, notice: 'Booking refused!'
   end
 
   private
