@@ -5,10 +5,14 @@
 
     <div class="contbut d-grid gap-2 col-12">
       <br>
-      <button type="button" class="btn-journey-customization btn-lg"><strong><%= link_to "LOOK AT ALL THE JOURNEYS", journeys_path %></strong></button>
-      <br/>
+      <%= link_to journeys_path do %>
+        <button type="button" class="btn-journey-customization btn-lg"><strong>LOOK AT ALL THE JOURNEYS</strong></button>
+      <% end %>
       <br>
-      <button type="button" class="btn-journey-customization btn-lg"><strong><%= link_to "CREATE A NEW JOURNEY", new_journey_path %><strong></button>
+      <br>
+      <%= link_to new_journey_path do %>
+      <button type="button" class="btn-journey-customization btn-lg"><strong>CREATE A NEW JOURNEY<strong></button>
+      <% end %>
       <br/>
     </div>
   </div>
