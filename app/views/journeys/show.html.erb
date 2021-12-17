@@ -6,11 +6,12 @@
   <ul>
   <%# <li><%= @journey.photo_url %></li>
   <li><strong>Duration: </strong><%= @journey.duration %> minutes | <%= @journey.exterior? ? "Exterior" : "Interior" %></li>
-  <li><strong>Senses: </strong> <%= @journey.sense %> | <strong>Interests: </strong> <%= @journey.interest %></li>
+  <li><strong>Senses: </strong> <%= @journey.sense %> | <strong>Interests: </strong> <%= @journey.interest_list.join(', ') %></li>
   <li><strong>Environment: </strong> <%= @journey.environment %> | <strong>Popularity: </strong> <%= @journey.popularity %> /10</li>
   <li><strong>A little anecdote about this journey: </strong> <%= @journey.anecdote %></li>
   <li><strong>Address: </strong> <%= @journey.address %></li>
   </ul>
+  <%= console %>
   </div>
   <div class="bottom-links">
   <% if current_user.id != @journey.user_id %>
