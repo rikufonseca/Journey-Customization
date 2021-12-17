@@ -11,6 +11,7 @@
   <li><strong>A little anecdote about this journey: </strong> <%= @journey.anecdote %></li>
   <li><strong>Address: </strong> <%= @journey.address %></li>
   </ul>
+  <%= console %>
   </div>
   <div class="bottom-links">
   <% if current_user.id != @journey.user_id %>
