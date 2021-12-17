@@ -1,42 +1,74 @@
-
-<div class="container-fluid" style="padding-top: 20px;">
-  <h3>Hello traveller!</h3>
-  <br>
-  <div class="dash-card">
-    <h4 class="dash-card-title">Your infos:</h4>
-    <div class="dash-card-text">
-      <div> Your email: <%= @user.email %> </div>
-      <div> <%= link_to "Log out", destroy_user_session_path, :method => :delete %> </div>
-      <%# <p>Name: <%= @user.full_name --> to be added once coded %>
+<div class="photo-dash container d-grid gap-1 col-12">
+  <div class="container-fluid" style="padding-top: 20px;">
+    <h3 style ="padding-bottom:30px">Hello traveller!</h3>
+    <div class="dash-card">
+      <h4 class="dash-card-title">About you</h4>
+      <div class="dash-card-text">
+        <p> Your email: <%= @user.email %> </p>
+        <div class="dash-btn"> <%= link_to "Log out", destroy_user_session_path, :method => :delete %> </p>
+        <%# <p>Name: <%= @user.full_name --> to be added once coded %>
+      </div>
     </div>
+
+    <div class="bookings_wrap">
+      <div class="dash-card">
+        <h4 class="dash-card-title">Pending bookings</h4>
+          <div class="dash-card-text">
+            <% if @user.bookings.empty? %>
+                <p> Nobody booked any of your journeys at the moment.
+                    Try to <%= link_to "add some", new_journey_path %>,
+                    or update the ones you already created.</p>
+            <% else %>
+              <% @user.bookings.each do |booking| %>
+                <% if booking.status != "Accepted" %>
+                  <div class="booking_card">
+                    <h3><%= booking.journey.title %></h3>
+                    <h3><%= booking.start_date %></h3>
+                    <h3><%= booking.status %></h3>
+                    <%= link_to "Delete this booking",
+                                booking_path(booking),
+                                method: :delete,
+                                data: { confirm: "Are you sure you want to cancel this booking? You can't undo this" } %>
+
+                    <%= link_to 'Accept booking', accept_booking_path(booking) %>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+      </div>
+
+      <div class="dash-card">
+        <h4 class="dash-card-title">Bookings you accepted</h4>
+          <div class="dash-card-text">
+            <% if @user.bookings.empty? %>
+                <p> Nobody booked any of your journeys at the moment. Try to <%= link_to "add some", new_journey_path %>, or update the ones you already created.</p>
+            <% else %>
+              <% @user.bookings.each do |booking| %>
+                <% if booking.status == "Accepted" %>
+                  <h3><%= booking.journey.title %></h3>
+                  <h3><%= booking.start_date %></h3>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+      </div>
   </div>
 
-  <h4>Pending bookings you have to accept or decline as a guide:</h4>
-  <br>
-  <h4>Bookings you accepted as a guide:</h4>
-  <br>
-  <h4>Journeys you created as a guide:</h4>
-  <br>
-  <h4>Journeys you booked for yourself as a visitor:</h4>
-  <br>
-</div>
-
-<div class="bookings_wrap_one">
-<h3>This are the bookings you declined: </h3>
-   <% @user.bookings.each do |booking| %>
-    <div class="booking_card_one">
-      <h3><%= booking.journey.title %></h3>
-      <h3><%= booking.start_date %></h3>
-      <h3><%= booking.status %></h3>
-      <%= link_to "Decline this booking",
-                  booking_path(booking),
-                  method: :delete %>
+  <div class="dash-card">
+    <h4 class="dash-card-title">Journeys you booked for yourself</h4>
+      <div class="dash-card-text">
+        <% if @user.bookings.empty? %>
+          <p> <strong> Whaaaat?!! </strong></p>
+          <p> Don't you crave discovery you lazy marmot? </p>
+          <p> If you need some rest from all your adventures, that's fine. 💚
+          <p> But know that some journeys DO have soothing environments</p>
+          <p> <%= link_to "See for yourself", journeys_path %> by browsing the calm and interior ones.</p>
+        <% else %>
+          <div class="dash-btn"><%= link_to "Edit booking", edit_booking_path(booking) %></div>
+          <div class="dash-btn"><%= link_to "Delete booking" %></div>
+                  </div>
+        <% end %>
       </div>
-   <% end %>
+  </div>
 </div>
-<br>
-
-
-<br>
-<h3>This are the journeys you booked for yourself: (bouton edit booking , button delete booking redirect vers accepte and decline)  </h3>
-<br>
