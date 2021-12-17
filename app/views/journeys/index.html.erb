@@ -1,29 +1,22 @@
 <h1> ALL THE JOURNEYS </h1>
 
 <div class="contcard-group">
-  <div class="card col-5">
-    <img src="https://www.opera-online.com/media/images/picture/article/0000/0935/5176/xl_opera-de-marseille-saison-2019-2020.jpg?1556291209" class="card-img-top" alt="Opéra de Marseille">
-    <div class="card-body">
-      <h2 class="card-title"><strong></strong></h2>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
-  </div>
-  <div class="card col-5">
-    <img src="https://www.opera-online.com/media/images/picture/article/0000/0935/5176/xl_opera-de-marseille-saison-2019-2020.jpg?1556291209" class="card-img-top" alt="Opéra de Marseille">
-    <div class="card-body">
-      <h2 class="card-title"><strong>Card</strong></h2>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-    </div>
-  </div>
+      <% @journeys.each do |journey| %>
+      <%= link_to journey_path(journey) do %>
+        <div class="card-body">
+          <div class="img-container">
+          <%= image_tag(journey.photo) %>
+          </div>
+          <h2 class="card-title"><%= journey.title %></h2>
+            <p class="card-text">
+              <strong>Journey duration:</strong> <%= journey.duration  %> minutes | <strong>Price:</strong> <%= journey.price  %> euros
+            </p>
+            <p class="card-text text-center">" <em><%= journey.anecdote %></em> "</p>
+          <br>
+        </div>
+    <% end %>
+    <% end %>
 </div>
-
-<ul>
-  <% @journeys.each do |journey| %>
-    <li> 👉 <strong><%= link_to journey.title, journey_path(journey) %></strong> |  "FUTURE PHOTO" </li>
-    <strong>Journey duration:</strong> <%= journey.duration  %> minutes | <strong>Price:</strong> <%= journey.price  %> euros
-    <br>
-  <% end %>
-</ul>
 
 <%= link_to new_journey_path do %>
 <button class="btn-journey-customization mx-auto"><strong>CREATE A NEW JOURNEY</strong></button>
