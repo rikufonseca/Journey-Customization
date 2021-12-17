@@ -65,10 +65,16 @@
           <p> But know that some journeys DO have soothing environments</p>
           <p> <%= link_to "See for yourself", journeys_path %> by browsing the calm and interior ones.</p>
         <% else %>
+          <% @bookings.each do |booking| %>
+          <%= booking.journey.title %>
           <div class="dash-btn"><%= link_to "Edit booking", edit_booking_path(booking) %></div>
-          <div class="dash-btn"><%= link_to "Delete booking" %></div>
-                  </div>
+          <div class="dash-btn"><%= link_to "Delete this booking",
+                                booking_path(booking),
+                                method: :delete,
+                                data: { confirm: "Are you sure you want to cancel this booking? You can't undo this" } %></div>
+          <% end %>
         <% end %>
       </div>
   </div>
 </div>
+
