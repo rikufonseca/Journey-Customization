@@ -66,7 +66,7 @@ CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
   interest = row["Categorie"]
   address = row["Adresse 1"] + " " + row["Code Postal"] + " " + row["Ville"]
 
-  journey = Journey.create(title: title,
+  journey = Journey.new(title: title,
                   interest_list: Journey::INTERESTS.sample(rand(1..7)),
                   address: address,
                   user_id: User.all.sample.id,
@@ -80,6 +80,7 @@ CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
                 )
   journey.photo.attach(io: file, filename: 'file.png', content_type: 'image/png')
   journey.save
+  p journey.photo.key
 
  puts 'created 1 journey .....'
  end
