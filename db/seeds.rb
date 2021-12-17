@@ -41,7 +41,6 @@ CSV.foreach(Rails.root.join('lib/lieux_culturels.csv'), csv_options) do |row|
   journey.save
 
  puts 'created 1 journey .....'
- puts journey.interest.join(', ')
  end
 
  puts ' done seeding ......'
