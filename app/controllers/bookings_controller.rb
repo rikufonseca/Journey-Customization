@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[edit destroy accept refuse]
+  before_action :set_booking, only: %i[update edit destroy accept refuse]
   def new
     @journey = Journey.find(params[:journey_id])
     @booking = Booking.new
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
   def update
     @booking.update(params_booking)
     if @booking.update(params_booking)
-      redirect_to journey_path(@journey), notice: 'Booking was successfully updated.'
+      redirect_to dashboard_path, notice: 'Booking was successfully updated.'
     else
       render :edit
     end
