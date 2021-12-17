@@ -19,19 +19,22 @@
                     Try to <%= link_to "add some", new_journey_path %>,
                     or update the ones you already created.</p>
             <% else %>
-              <% @user.bookings.each do |booking| %>
-                <% if booking.status != "Accepted" %>
-                  <div class="booking_card">
-                    <h3><%= booking.journey.title %></h3>
-                    <h3><%= booking.start_date %></h3>
-                    <h3><%= booking.status %></h3>
+                <% @user.bookings.each do |booking| %>
+                <% if @user.id == booking.journey.user_id %>
+                  <% if booking.status != "Accepted" %>
+                    <div class="booking_card">
+                      <h3><%= booking.journey.title %></h3>
+                      <h3><%= booking.start_date %></h3>
+                      <h3><%= booking.status %></h3>
                     <%= link_to "Delete this booking",
                                 booking_path(booking),
                                 method: :delete,
                                 data: { confirm: "Are you sure you want to cancel this booking? You can't undo this" } %>
 
                     <%= link_to 'Accept booking', accept_booking_path(booking) %>
-                  </div>
+                    </div>
+
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
@@ -44,10 +47,13 @@
             <% if @user.bookings.empty? %>
                 <p> Nobody booked any of your journeys at the moment. Try to <%= link_to "add some", new_journey_path %>, or update the ones you already created.</p>
             <% else %>
-              <% @user.bookings.each do |booking| %>
-                <% if booking.status == "Accepted" %>
-                  <h3><%= booking.journey.title %></h3>
-                  <h3><%= booking.start_date %></h3>
+                <% @user.bookings.each do |booking| %>
+                <% if @user.id == booking.id %>
+
+                  <% if booking.status == "Accepted" %>
+                    <h3><%= booking.journey.title %></h3>
+                    <h3><%= booking.start_date %></h3>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
