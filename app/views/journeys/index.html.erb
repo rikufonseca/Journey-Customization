@@ -4,26 +4,17 @@
   <div class="card col-5">
     <img src="https://www.opera-online.com/media/images/picture/article/0000/0935/5176/xl_opera-de-marseille-saison-2019-2020.jpg?1556291209" class="card-img-top" alt="Opéra de Marseille">
     <div class="card-body">
-      <h2 class="card-title"><strong></strong></h2>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
-  </div>
-  <div class="card col-5">
-    <img src="https://www.opera-online.com/media/images/picture/article/0000/0935/5176/xl_opera-de-marseille-saison-2019-2020.jpg?1556291209" class="card-img-top" alt="Opéra de Marseille">
-    <div class="card-body">
-      <h2 class="card-title"><strong>Card</strong></h2>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <% @journeys.each do |journey| %>
+        <h2 class="card-title"><%= link_to journey.title, journey_path(journey) %></h2>
+          <p class="card-text">
+            <strong>Journey duration:</strong> <%= journey.duration  %> minutes | <strong>Price:</strong> <%= journey.price  %> euros
+          </p>
+        <br>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
-
-<ul>
-  <% @journeys.each do |journey| %>
-    <li> 👉 <strong><%= link_to journey.title, journey_path(journey) %></strong> |  "FUTURE PHOTO" </li>
-    <strong>Journey duration:</strong> <%= journey.duration  %> minutes | <strong>Price:</strong> <%= journey.price  %> euros
-    <br>
-  <% end %>
-</ul>
 
 <%= link_to new_journey_path do %>
 <button class="btn-journey-customization mx-auto"><strong>CREATE A NEW JOURNEY</strong></button>
