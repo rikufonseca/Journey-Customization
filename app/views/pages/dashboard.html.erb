@@ -60,8 +60,13 @@
   <div class="dash-card">
     <h4 class="dash-card-title">Journeys you booked for yourself</h4>
       <div class="dash-card-text">
+        <% @bookings.each do |book| %>
+        <%= book.journey.title %>
+        <% end %>
         <%= link_to "Edit booking" %>
         <%= link_to "Delete booking" %>
       </div>
   </div>
 </div>
+
+<% console %>
