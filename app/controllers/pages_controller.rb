@@ -9,6 +9,8 @@ class PagesController < ApplicationController
     @journeys = Journey.all
     @bookings = Booking.where(user: current_user)
     @journeys = Journey.where(user: current_user)
+    @bookings = Booking.all
+
   end
 
 end
