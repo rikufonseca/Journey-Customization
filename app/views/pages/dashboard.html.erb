@@ -5,7 +5,7 @@
       <h4 class="dash-card-title">About you</h4>
       <div class="dash-card-text">
         <p> Your email: <%= @user.email %> </p>
-        <div id="lgo-btn"> <%= link_to "Log out", destroy_user_session_path, :method => :delete %> </p>
+        <div class="dash-btn"> <%= link_to "Log out", destroy_user_session_path, :method => :delete %> </p>
         <%# <p>Name: <%= @user.full_name --> to be added once coded %>
       </div>
     </div>
@@ -15,11 +15,9 @@
         <h4 class="dash-card-title">Pending bookings</h4>
           <div class="dash-card-text">
             <% if @user.bookings.empty? %>
-                <p> <strong> Whaaaat?!! </strong></p>
-                <p> Don't you crave discovery you lazy marmot? </p>
-                <p> If you need some rest from all your adventures, that's fine. 💚
-                <p> But know that some journeys DO have soothing environments</p>
-                <p> <%= link_to "See for yourself", new_journey_path %> by browsing the calm and interior ones.</p>
+                <p> Nobody booked any of your journeys at the moment.
+                    Try to <%= link_to "add some", new_journey_path %>,
+                    or update the ones you already created.</p>
             <% else %>
               <% @user.bookings.each do |booking| %>
                 <% if booking.status != "Accepted" %>
@@ -60,8 +58,17 @@
   <div class="dash-card">
     <h4 class="dash-card-title">Journeys you booked for yourself</h4>
       <div class="dash-card-text">
-        <%= link_to "Edit booking" %>
-        <%= link_to "Delete booking" %>
+        <% if @user.bookings.empty? %>
+          <p> <strong> Whaaaat?!! </strong></p>
+          <p> Don't you crave discovery you lazy marmot? </p>
+          <p> If you need some rest from all your adventures, that's fine. 💚
+          <p> But know that some journeys DO have soothing environments</p>
+          <p> <%= link_to "See for yourself", journeys_path %> by browsing the calm and interior ones.</p>
+        <% else %>
+          <div class="dash-btn"><%= link_to "Edit booking", edit_booking_path(booking) %></div>
+          <div class="dash-btn"><%= link_to "Delete booking" %></div>
+                  </div>
+        <% end %>
       </div>
   </div>
 </div>
