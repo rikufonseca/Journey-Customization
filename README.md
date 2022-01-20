@@ -1,5 +1,5 @@
 
-## Journey Customization: "Airbnb like" project for Le Wagon web dev bootcamp
+## Journey Customization: "Airbnb-like" project for Le Wagon web dev bootcamp
 
 ### About the project:
 __Group composition__: 2 fullstack developers, 1 front-end developer, all participating in Le Wagon bootcamp.<br>
